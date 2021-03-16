@@ -17,7 +17,7 @@ class ContactHelper {
   Database _db;
 
   Future<Database> get db async {
-    if (db != null) {
+    if (_db != null) {
       return _db;
     } else {
       _db = await initDb();
@@ -81,7 +81,7 @@ class ContactHelper {
     );
   }
 
-  Future<List> getAllContact(int id) async {
+  Future<List> getAllContact() async {
     Database dbContact = await db;
 
     List<Map> listMap = await dbContact.rawQuery("SELECT * FROM $contactTable");
@@ -115,6 +115,8 @@ class Contact {
   String email;
   String phone;
   String img;
+
+  Contact() {}
 
   Contact.fromMap(Map map) {
     id = map[idColumn];
