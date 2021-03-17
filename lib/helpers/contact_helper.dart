@@ -116,7 +116,7 @@ class Contact {
   String phone;
   String img;
 
-  Contact() {}
+  Contact();
 
   Contact.fromMap(Map map) {
     id = map[idColumn];
